@@ -1,31 +1,198 @@
 <!DOCTYPE html>
 <html>
- <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <style>
-	table {
-		border-collapse: collapse;
-		/*убираем пустые промежутки между ячейками*/
-		border: 2px solid black;
-		/*устанавливаем для таблицы внешнюю границу серого цвета толщиной 1px*/
-	}
-	td {
-		border: 1px solid grey;
-	}
-	td.vacation {
-		border-right-style: hidden;
-		background: yellow;
-	}
-	td.celebration {
-		border-right-style: hidden;
-	}
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style>
+    body {
+        background-color: black;
+        color: #bbbbbb;
+    }
+    h1 {
+        text-align: center;
+    }
+    p {
+        text-indent: 25px;
+        margin-top: 0em;
+        margin-bottom: 0em;
+    }
+    a {
+        color: #cccccc;
+    }
+    .contactbox {
+		float: left;
+		width: 30%;
+		margin-left: 5%; 
+    }
+    .accordeonbox {
+		float: right;
+		width: 60%;
+        margin-top: 10px;
+		margin-right: 5%; 
+    }
+    .accordeon-wrapper {
+        border: 1px solid #aaa;
+        border-radius: 5px;
+        /* margin-top: 50px; */
+    }
+    .accordeon-header {
+        background-color: #aaa;
+        color: black;
+        padding: 10px;
+        cursor: pointer;
+        user-select: none;
+    }
+    .accordeon-header:hover {
+        background-color: #ddd;
+        color: black;
+    }
+    .accordeon-body {
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height .4s ease-in;
+    }
+    .accordeon-body > * {
+        padding: 5px;
+        margin: 0;
+        display: block;
+    }
+</style>
+    
+    <title>Cайт-визитка С.Калимова</title>
 
-  	th { color: #a6780a; font-weight: normal; }
-  </style>
-  <title>Персональный сайт С.Калимова</title>
- </head>
- <body>
-  <h1 align=center>Пока здесь пусто, но скоро что-нить будет</h1>
- </body>
+</head>
+
+<script type="text/javascript">
+    var str = "<h3>Контакты</h3><br><p>Звонить сюда: +7 912 869 04 01</p><br><p>Писать сюда: <a href=\"mailto:skalimov.ru\">skalimov@gmail.com</a></p><br>";
+    str = str + "<h3>Общая информация</h3><br><p>Возраст: 49 лет</p><br><p>Образование: Физический факультет СыктГУ</p><br><p>Текущая работа: госслужба Республики Коми</p>";
+    function putstring(N) {
+        var dlm='<br>';
+        var a=str.split(dlm);
+        N=N||0;
+        dlm=(N==0)? '': dlm;
+        document.getElementById('txt').innerHTML+=dlm+a[N];
+        if (++N==a.length) {
+            return
+        };
+        setTimeout(function (){
+            putstring(N);
+        },1000);
+    };
+</script>
+
+<body onload='putstring()'>
+    <h1>Сайт-визитка Калимова Сергея Геннадьевича</h1>
+    
+    <div class="contactbox" id='txt'> 
+            
+
+    </div>
+    
+    <div class="accordeonbox">
+        <div class="accordeon-wrapper">
+            <div class="accordeon-section">
+                <div class="accordeon-header">
+                    <p>Что умею и актуальный опыт</p>
+                </div>
+                <div class="accordeon-body">
+                    <div>
+                        <p>Системное администрирование серверов на основе RedHat Enterprise Linux (2.1, 3.0, 5.x, 6.x) и Ubuntu Server (20.04)</p>
+                        <p>Программирование: VBA, Python, C++ (начальный уровень)</p>
+                        <p>Настройка и сопровождение SOHO серверов (RAID, Firewall, Samba, DNS, DHCP) на основе RedHat Enterprise Linux 5.x, 6.x</p>
+                        <p>Настройка серверов виртуализации на основе VMware, KVM</p>
+                        <p>Разработка пакета документов по технической защите информации и персональных данных</p>
+                        <p>Разработка проектов нормативных правовых актов</p>
+                        <p>Участие во внедрении со стороны заказчика (спонсора проекта) системы вызова экстренных оперативных служб с использованием единого номера &laquo;112&raquo;</p>
+                        <p>Разработка функциональных требований к программному обеспечению</p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="accordeon-section">
+                <div class="accordeon-header">
+                    <p>Неактуальный опыт</p>
+                </div>
+                <div class="accordeon-body">
+                    <div>
+                        <p>Сайт на основе связки IIS/ASP/Access</p>
+                        <p>Построение кластеров высокой готовности с распределенным RAID на основе RedHat Enterprise Linux 5.x</p>
+                        <p>Системное администрирование HP-UX 11</p>
+                        <p>Системное администрирование SAP&nbsp;R/3 4.6/4.7 и SAP&nbsp;BW 2.1/3.0</p>
+                        <p>Построение системного ландшафта SAP&nbsp;R/3 и SAP&nbsp;BW на основе Linux/HP-UX и СУБД SAP&nbsp;DB</p>
+                        <p>Программирование на Clipper5 (сетевые программы)</p>
+                        <p>Проектирование и построение локальных сетей (максимальный размер проекта: 400 рабочих мест)</p>
+                        <p>Программирование расчетных задач на Pascal</p>
+                        <p>Кадры, бюджетирование, контроллинг, бюджетное планирование ....</p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="accordeon-section">
+                <div class="accordeon-header">
+                    <p>Какую работу ищу</p>
+                </div>
+                <div class="accordeon-body">
+                    <div>
+                        <p>Ищется работа сиcтемным администратором или программистом:</p>
+                        <ul>
+                            <li>Удаленная работа (вечерне-ночная или со свободным графиком);</li>
+                            <li>Такая же удаленная работа с переводом в оффлайн-режим в г.Санкт-Петербург в среднесрочной перспективе (в 2025 году)</li>
+                            <li>Вечерняя (и/или) на выходных работа в сфере IT в г.Сыктывкаре</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordeon-section">
+                <div class="accordeon-header">
+                    <p>Что сейчас изучаю</p>
+                </div>
+                <div class="accordeon-body">
+                    <div>
+                        <p>JavaScript, C++, PHP. Ковыряю на них <a Href="http://skalimov.ru/euler.php" target=_Blank>Задачи Эйлера</a></p>
+                        <p>Python, сразу пишу web-программу на связке python/sqlite/apache2 без использования framework-ов</p>
+                        <p>Системное администрирование RedHat Enterprise Linux 7.x, 8.x (новое по сравнению со старыми версиями)</p>
+                        <p>Docker</p>
+                   </div>
+                </div>
+            </div>
+
+            <div class="accordeon-section">
+                <div class="accordeon-header">
+                    <p>Планы на изучение</p>
+                </div>
+                <div class="accordeon-body">
+                    <div>
+                        <p>Framework-и для Python</p>
+                        <p>Обновить в памяти программирование на sh/bash</p>
+                        <p>Актуализация CSS</p>
+                        <p>Настройка Active Directory</p>                     
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        +function () {
+            function initAccordeon () {
+                var firstSectionBodyHeight = document.querySelector('.accordeon-section .accordeon-body > *').clientHeight
+                document.querySelector('.accordeon-section .accordeon-body').style.maxHeight = firstSectionBodyHeight + 'px'
+            }
+            initAccordeon()
+            var accordeonHeaderClickHandler = function(e) {
+                document.querySelectorAll('.accordeon-section').forEach(function(section) {
+                    section.querySelector('.accordeon-body').style.maxHeight = '0px'
+                })
+                var accordeonSection = e.target.closest('.accordeon-section')
+                var insideElHeight = accordeonSection.querySelector('.accordeon-body > *').clientHeight
+                accordeonSection.querySelector('.accordeon-body').style.maxHeight = insideElHeight + 'px';
+            }
+            document.querySelectorAll('.accordeon-section')
+            .forEach(function(section) {
+                section.addEventListener('click', accordeonHeaderClickHandler)
+            })
+        }()
+    </script>
+</body>
 </html>
-
